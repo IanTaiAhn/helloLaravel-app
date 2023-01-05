@@ -40,3 +40,25 @@ Route::get('/search', function (Request $request) {
     // We do this to specify which "query" we want, or info we passed into the url.
     return $request->name . ' ' . $request->city;
 });
+
+
+// Returning data from database, or api... but not here.
+Route::get('/list', function () {
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => [
+            [
+                'id' => 1,
+                'title' => 'Listing One',
+                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Alias distinctio qui consequuntur dicta pariatur possimus.'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Listing Two',
+                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Alias distinctio qui consequuntur dicta pariatur possimus.'
+            ],
+        ]
+    ]);
+});
