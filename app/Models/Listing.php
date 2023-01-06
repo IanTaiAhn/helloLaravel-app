@@ -30,7 +30,9 @@ class Listing
         foreach ($listings as $listing) {
             if ($listing['id'] == $id) {
                 return $listing;
-            }
+            } else {
+                return 'listing not found';
+            };
         }
     }
 }
