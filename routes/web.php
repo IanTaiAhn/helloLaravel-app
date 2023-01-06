@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Listing;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,24 +41,39 @@ Route::get('/search', function (Request $request) {
     return $request->name . ' ' . $request->city;
 });
 
-
-// Returning data from database, or api... but not here.
+// Using imported App\Models\Listing we can use the function we created to get all the listings.
 Route::get('/list', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
-        'listings' => [
-            [
-                'id' => 1,
-                'title' => 'Listing One',
-                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Alias distinctio qui consequuntur dicta pariatur possimus.'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Listing Two',
-                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Alias distinctio qui consequuntur dicta pariatur possimus.'
-            ],
-        ]
+        'listings' => Listing::all()
     ]);
 });
+
+// Single Listing
+Route::get('/list/{id}', function ($id) {
+    return view('listing', [
+        'heading' => 'Found this listing',
+        'listing' => Listing::find($id)
+    ]);
+});
+
+// Hard coded listings data.
+// Route::get('/list', function () {
+//     return view('listings', [
+//         'heading' => 'Latest Listings',
+//         'listings' => [
+//             [
+//                 'id' => 1,
+//                 'title' => 'Listing One',
+//                 'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                 Alias distinctio qui consequuntur dicta pariatur possimus.'
+//             ],
+//             [
+//                 'id' => 2,
+//                 'title' => 'Listing Two',
+//                 'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                 Alias distinctio qui consequuntur dicta pariatur possimus.'
+//             ],
+//         ]
+//     ]);
+// });
