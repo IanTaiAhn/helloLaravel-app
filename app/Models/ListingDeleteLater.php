@@ -22,17 +22,17 @@ class Listing
         ];
     }
 
-    public static function find($id)
-    {
-        // Use self to call on this model 
-        $listings = self::all();
+    // public static function find($id)
+    // {
+    //     // Use self to call on this model 
+    //     $listings = self::all();
 
-        foreach ($listings as $listing) {
-            if ($listing['id'] == $id) {
-                return $listing;
-            } else {
-                return 'listing not found';
-            };
-        }
-    }
+    //     foreach ($listings as $listing) {
+    //         if ($listing['id'] == $id) {
+    //             return $listing;
+    //         } else {
+    //             return 'listing not found';
+    //         };
+    //     }
+    // }
 }

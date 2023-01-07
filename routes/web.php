@@ -14,9 +14,9 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/hello', function () {
     return view('testView');
@@ -42,7 +42,7 @@ Route::get('/search', function (Request $request) {
 });
 
 // Using imported App\Models\Listing we can use the function we created to get all the listings.
-Route::get('/listings', function () {
+Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
         'listings' => Listing::all()
@@ -50,10 +50,9 @@ Route::get('/listings', function () {
 });
 
 // Single Listing
-Route::get('/listings/{id}', function ($id) {
+Route::get('/listings/{listing}', function (Listing $listing) {
     return view('listing', [
-        'heading' => 'Found this listing',
-        'listing' => Listing::find($id)
+        'listing' => $listing
     ]);
 });
 

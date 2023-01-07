@@ -62,8 +62,9 @@ $test = 1;
     </div>
 </div>
 @endforeach
-@endsection
 @else
     <p>No listings found</p>
 @endunless
+@endsection
+
 </div>
