@@ -36,6 +36,7 @@
             </ul>
         </nav>
         <main>
+            {{-- The @yield/'content' changes accordinig to what I have in the URL. --}}
     @yield('content')
         </main>
         <footer

@@ -22,8 +22,7 @@ Route::get('/hello', function () {
     return view('testView');
 });
 
-// Useful for apis i think.. or not
-
+// Methods for debuggin
 Route::get('/posts/{id}', function ($id) {
     // die dump
     // dd($id); 
@@ -36,7 +35,6 @@ Route::get('/posts/{id}', function ($id) {
 // /search?name=IanTai&City=SaltLakeCity
 Route::get('/search', function (Request $request) {
     // dd($request) this will show a bunch of crap 
-
     // We do this to specify which "query" we want, or info we passed into the url.
     return $request->name . ' ' . $request->city;
 });

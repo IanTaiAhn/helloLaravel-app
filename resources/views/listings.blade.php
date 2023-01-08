@@ -11,7 +11,6 @@ $test = 1;
 @endphp
 {{$test}} --}}
 
-
 {{-- Blade Directives make this so much better. --}}
 
 {{-- @if(count($listings) == 0)
@@ -19,11 +18,11 @@ $test = 1;
 @endif --}}
 {{-- @if and @unless are the same thing. --}}
 @unless(count($listings) == 0)
-@foreach ($listings as $listing)
-<x-listing-card :listing="$listing"/>
-@endforeach
-@else
-    <p>No listings found</p>
+    @foreach ($listings as $listing)
+        <x-listing-card :listing="$listing"/>
+    @endforeach
+{{-- @else
+    <p>No listings found</p> --}}
 @endunless
 @endsection
 
