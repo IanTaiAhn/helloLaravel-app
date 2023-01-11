@@ -42,22 +42,22 @@ Route::get('/search', function (Request $request) {
 // Using imported App\Models\Listing we can use the function we created to get all the listings.
 Route::get('/', function () {
     return view('listings', [
-        'heading' => 'Latest Listings',
         'listings' => Listing::all()
     ]);
 });
 
-// Single Listing
-Route::get('/listings/{listing}', function (Listing $listing) {
+// Single Listing... Idk how this works honestly, but it gets it by listing id. black boxed.
+// I know that the {listing} is a variable that needs to match everything eles to work.
+Route::get('/listings/{listingT}', function (Listing $listingT) {
     return view('listing', [
-        'listing' => $listing
+        'listing' => $listingT
     ]);
 });
 
 // Hard coded listings data.
 // Route::get('/list', function () {
 //     return view('listings', [
-//         'heading' => 'Latest Listings',
+        // 'heading' => 'Latest Listings', This 'heading' is a variable that we can use in the blade layouts.
 //         'listings' => [
 //             [
 //                 'id' => 1,
