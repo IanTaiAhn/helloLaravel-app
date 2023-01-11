@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -9,13 +10,16 @@ class ListingController extends Controller
     // Show all listings
     public function index()
     {
-        // return view('listings', [
-        //     'listings' => Listing::all()
-        // ]);
+        return view('listings', [
+            'listings' => Listing::all()
+        ]);
     }
 
     // Show single listing
-    public function show()
+    public function show(Listing $listing)
     {
+        return view('listing', [
+            'listing' => $listing
+        ]);
     }
 }

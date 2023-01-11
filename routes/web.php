@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -39,20 +40,26 @@ Route::get('/search', function (Request $request) {
     return $request->name . ' ' . $request->city;
 });
 
+// The cleaner way to control where a webpage routes to.
+Route::get('/', [ListingController::class, 'index']);
+
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+// Old way to do the url routes without the ListingController.
 // Using imported App\Models\Listing we can use the function we created to get all the listings.
-Route::get('/', function () {
-    return view('listings', [
-        'listings' => Listing::all()
-    ]);
-});
+// Route::get('/', function () {
+//     return view('listings', [
+//         'listings' => Listing::all()
+//     ]);
+// });
 
 // Single Listing... Idk how this works honestly, but it gets it by listing id. black boxed.
 // I know that the {listing} is a variable that needs to match everything eles to work.
-Route::get('/listings/{listingT}', function (Listing $listingT) {
-    return view('listing', [
-        'listing' => $listingT
-    ]);
-});
+// Route::get('/listings/{listing}', function (Listing $listing) {
+//     return view('listing', [
+//         'listing' => $listing
+//     ]);
+// });
 
 // Hard coded listings data.
 // Route::get('/list', function () {
