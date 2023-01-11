@@ -45,6 +45,15 @@ Route::get('/', [ListingController::class, 'index']);
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+// Common Resoure Routes for Laravel:
+    // index - Show all listings
+    // show - Show single listing
+    // create - Show form to create new listing
+    // store - Store new listing
+    // edit - Show form to edit listing
+    // update - Update listing
+    // destroy - Delete listing
+
 // Old way to do the url routes without the ListingController.
 // Using imported App\Models\Listing we can use the function we created to get all the listings.
 // Route::get('/', function () {
